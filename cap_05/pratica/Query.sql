@@ -113,7 +113,7 @@ ORDER BY SUM(valor_pedido) DESC;
 # Aula: Funções de Agregação - Parte 3/5
 
 ## Supondo que a comissão de cada vendedor de ja de 10%, quanto cada vendedor ganhou de comissão nas vendas no estado do Ceará?
-## Retorne 0 se n'ao houver ganho de comissão.
+## Retorne 0 se nÃo houver ganho de comissão.
 
 SELECT * FROM cap05.tb_clientes;
 SELECT * FROM cap05.tb_pedidos;
