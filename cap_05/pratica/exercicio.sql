@@ -1,16 +1,16 @@
-CREATE SCHEMA cap05exerc CHARACTER SET utf8mb4;
+# CREATE SCHEMA cap05exerc CHARACTER SET utf8mb4;
 
-USE cap05exerc;
+# USE cap05exerc;
 
 # DROP SCHEMA cap05exerc;
 
-CREATE TABLE `cap05exerc`.`channels` (
+CREATE TABLE `cap05`.`tb_ex_channels` (
     `channel_id` INT NULL,
     `channel_name` VARCHAR(50) NULL,
     `channel_tipe` VARCHAR(50) NULL
 );
 
-CREATE TABLE `cap05exerc`.`deliveries` (
+CREATE TABLE `cap05`.`tb_ex_deliveries` (
     `delivery_id` INT NULL,
     `delivery_order_id` INT NULL,
     `driver_id` INT NULL,
@@ -18,13 +18,13 @@ CREATE TABLE `cap05exerc`.`deliveries` (
     `delivery_status` VARCHAR(50) NULL
 );
 
-CREATE TABLE `cap05exerc`.`drivers` (
+CREATE TABLE `cap05`.`tb_ex_drivers` (
     `driver_id` INT NULL,
     `driver_modal` VARCHAR(50) NULL,
     `driver_type` VARCHAR(50) NULL
 );
 
-CREATE TABLE `cap05exerc`.`hubs` (
+CREATE TABLE `cap05`.`tb_ex_hubs` (
 	`hub_id` INT NULL,
     `hub_name` VARCHAR(50),
     `hub_city` VARCHAR(50),
@@ -33,7 +33,7 @@ CREATE TABLE `cap05exerc`.`hubs` (
     `hub_longitude` FLOAT NULL
 );
 
-CREATE TABLE `cap05exerc`.`orders` (
+CREATE TABLE `cap05`.`tb_ex_orders` (
     `order_id` INT DEFAULT NULL,
     `store_id` INT DEFAULT NULL,
     `channel_id` INT DEFAULT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE `cap05exerc`.`orders` (
 )
 ;
 
-CREATE TABLE `cap05exerc`.`payments` (
+CREATE TABLE `cap05`.`tb_ex_payments` (
 	`payment_id` INT NULL,
     `payment_order_id` INT NULL,
     `payment_amount` FLOAT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE `cap05exerc`.`payments` (
     `payment_status` TEXT
 );
 
-CREATE TABLE `cap05exerc`.`stores` (
+CREATE TABLE `cap05exerc`.`tb_ex_stores` (
 	`store_id` INT NULL,
     `hub_id` INT NULL,
     `store_name` TEXT,
@@ -87,16 +87,18 @@ CREATE TABLE `cap05exerc`.`stores` (
 
 # Fiz o carregamento dos dados via linha de comando, a baixo deixarei os códigos para registro da atividade
 
-LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\channels.csv" INTO TABLE `cap05exerc`.`channels` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+SET GLOBAL local_infile = true;
 
-LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\deliveries.csv" INTO TABLE `cap05exerc`.`deliveries` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\channels.csv" INTO TABLE `cap05`.`tb_ex_channels` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
-LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\drivers.csv" INTO TABLE `cap05exerc`.`drivers` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\deliveries.csv" INTO TABLE `cap05`.`tb_ex_deliveries` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
-LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\hubs.csv" INTO TABLE `cap05exerc`.`hubs` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\drivers.csv" INTO TABLE `cap05`.`tb_ex_drivers` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
-LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\orders.csv" INTO TABLE `cap05exerc`.`orders` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\hubs.csv" INTO TABLE `cap05`.`tb_ex_hubs` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
-LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\payments.csv" INTO TABLE `cap05exerc`.`payments` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\orders.csv" INTO TABLE `cap05`.`tb_ex_orders` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
-LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\stores.csv" INTO TABLE `cap05exerc`.`stores` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\payments.csv" INTO TABLE `cap05`.`tb_ex_payments` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE "E:\\OneDrive\\Desktop\\sql_para_data_science\\cap_05\\pratica\\exercicio_cenario_analise_dados_4\\stores.csv" INTO TABLE `cap05`.`tb_ex_stores` CHARACTER SET UTF8MB4 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;

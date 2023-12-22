@@ -37,8 +37,8 @@ GROUP BY cidade_cliente
 ORDER BY media DESC;
 
 # Insere um novo registro na tabela de clientes
-# INSERT INTO `cap05`.`TB_CLIENTES` (`id_cliente`, `nome_cliente`, `endereco_cliente`, `cidade_cliente`, `estado_cliente`)
-# VALUES (11, "Michael Jordan", "Rua 21", "Palmas", "TO");
+INSERT INTO `cap05`.`TB_CLIENTES` (`id_cliente`, `nome_cliente`, `endereco_cliente`, `cidade_cliente`, `estado_cliente`)
+VALUES (11, "Michael Jordan", "Rua 21", "Palmas", "TO");
 
 SELECT 
 CASE WHEN valor_pedido IS NULL THEN 0 ELSE ROUND(AVG(valor_pedido), 2) END AS media,
@@ -67,21 +67,21 @@ ON P.id_cliente = C.id_cliente
 GROUP BY cidade_cliente;
 
 # Insere mais 2 clientes
-# INSERT INTO `cap05`.`TB_CLIENTES` (`id_cliente`, `nome_cliente`, `endereco_cliente`, `cidade_cliente`, `estado_cliente`)
-# VALUES (12, "Bill Gates", "Rua 14", "Santos", "SP");
+INSERT INTO `cap05`.`TB_CLIENTES` (`id_cliente`, `nome_cliente`, `endereco_cliente`, `cidade_cliente`, `estado_cliente`)
+VALUES (12, "Bill Gates", "Rua 14", "Santos", "SP");
 
-# INSERT INTO `cap05`.`TB_CLIENTES` (`id_cliente`, `nome_cliente`, `endereco_cliente`, `cidade_cliente`, `estado_cliente`)
-# VALUES (13, "Jeff Bezos", "Rua 29", "Osasco", "SP");
+ INSERT INTO `cap05`.`TB_CLIENTES` (`id_cliente`, `nome_cliente`, `endereco_cliente`, `cidade_cliente`, `estado_cliente`)
+ VALUES (13, "Jeff Bezos", "Rua 29", "Osasco", "SP");
 
 # Insere mais 3 pedidos
-# INSERT INTO `cap05`.`TB_PEDIDOS` (`id_pedido`, `id_cliente`, `id_vendedor`, `data_pedido`, `id_entrega`, `valor_pedido`)
-# VALUES (1016, 11, 5, now(), 27, 234.09);
+ INSERT INTO `cap05`.`TB_PEDIDOS` (`id_pedido`, `id_cliente`, `id_vendedor`, `data_pedido`, `id_entrega`, `valor_pedido`)
+ VALUES (1016, 11, 5, now(), 27, 234.09);
 
-# INSERT INTO `cap05`.`TB_PEDIDOS` (`id_pedido`, `id_cliente`, `id_vendedor`, `data_pedido`, `id_entrega`, `valor_pedido`)
-# VALUES (1017, 12, 4, now(), 22, 678.30);
+ INSERT INTO `cap05`.`TB_PEDIDOS` (`id_pedido`, `id_cliente`, `id_vendedor`, `data_pedido`, `id_entrega`, `valor_pedido`)
+ VALUES (1017, 12, 4, now(), 22, 678.30);
 
-# INSERT INTO `cap05`.`TB_PEDIDOS` (`id_pedido`, `id_cliente`, `id_vendedor`, `data_pedido`, `id_entrega`, `valor_pedido`)
-# VALUES (1018, 13, 4, now(), 22, 978.30);
+ INSERT INTO `cap05`.`TB_PEDIDOS` (`id_pedido`, `id_cliente`, `id_vendedor`, `data_pedido`, `id_entrega`, `valor_pedido`)
+ VALUES (1018, 13, 4, now(), 22, 978.30);
 
 SELECT SUM(valor_pedido) AS total, cidade_cliente, estado_cliente
 FROM cap05.tb_pedidos AS P INNER JOIN cap05.tb_clientes AS C
@@ -90,11 +90,11 @@ GROUP BY cidade_cliente, estado_cliente
 ORDER BY estado_cliente;
 
 # Insere mais 2 clientes
-# INSERT INTO `cap05`.`TB_CLIENTES` (`id_cliente`, `nome_cliente`, `endereco_cliente`, `cidade_cliente`, `estado_cliente`)
-# VALUES (14, "Melinda Gates", "Rua 14", "Barueri", "SP");
+ INSERT INTO `cap05`.`TB_CLIENTES` (`id_cliente`, `nome_cliente`, `endereco_cliente`, `cidade_cliente`, `estado_cliente`)
+ VALUES (14, "Melinda Gates", "Rua 14", "Barueri", "SP");
 
-# INSERT INTO `cap05`.`TB_CLIENTES` (`id_cliente`, `nome_cliente`, `endereco_cliente`, `cidade_cliente`, `estado_cliente`)
-# VALUES (15, "Barack Obama", "Rua 29", "Barueri", "SP");
+ INSERT INTO `cap05`.`TB_CLIENTES` (`id_cliente`, `nome_cliente`, `endereco_cliente`, `cidade_cliente`, `estado_cliente`)
+ VALUES (15, "Barack Obama", "Rua 29", "Barueri", "SP");
 
 SELECT
 CASE
